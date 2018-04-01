@@ -1,9 +1,15 @@
 import mill._
 import mill.scalalib._
+import mill.scalajslib._
 import coursier.maven.MavenRepository
 import publish._
 
-object scalajs extends ScalaModule {
+object scalajs extends ScalaJSModule {
+  def mainClass = Some("com.github.sguzman.scala.js.Main")
+
+  /** ScalaJS version */
+  def scalaJSVersion = "0.6.22"
+
   /** Name of project */
   def name = "MillScala.js"
 
