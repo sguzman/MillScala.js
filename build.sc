@@ -5,6 +5,7 @@ import coursier.maven.MavenRepository
 import publish._
 
 object scalajs extends ScalaJSModule {
+  /** Main */
   def mainClass = Some("com.github.sguzman.scala.js.Main")
 
   /** ScalaJS version */
@@ -40,7 +41,12 @@ object scalajs extends ScalaJSModule {
   )
 
   /** Ivy dependencies */
-  //def ivyDeps = Agg()
+  def ivyDeps = Agg(
+    ivy"com.thoughtworks.binding::dom_sjs0.6:11.0.1",
+    ivy"org.scala-js::scalajs-dom_sjs0.6:0.9.5"
+  )
+
+  def scalacPluginIvyDeps = super.scalacPluginIvyDeps() ++ Agg(ivy"org.scalamacros:::paradise:2.1.1")
 
   def forkArgs = Seq("-Xmx4g")
 }
