@@ -2,7 +2,6 @@ import mill._
 import mill.scalalib._
 import coursier.maven.MavenRepository
 import publish._
-import java.io.File
 
 object scalajs extends ScalaModule {
   /** Name of project */
